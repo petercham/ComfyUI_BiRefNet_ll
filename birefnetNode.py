@@ -91,7 +91,7 @@ VERSION = ["old", "v1"]
 old_models_name = ["BiRefNet-DIS_ep580.pth", "BiRefNet-ep480.pth"]
 
 
-class AutoDownloadBiRefNetModel:
+class AutoDownloadBIREFNET:
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -102,7 +102,7 @@ class AutoDownloadBiRefNetModel:
             }
         }
 
-    RETURN_TYPES = ("BiRefNetMODEL",)
+    RETURN_TYPES = ("BIREFNET",)
     RETURN_NAMES = ("model",)
     FUNCTION = "load_model"
     CATEGORY = "image/BiRefNet"
@@ -127,7 +127,7 @@ class AutoDownloadBiRefNetModel:
         return [(biRefNet_model, VERSION[1])]
 
 
-class LoadRembgByBiRefNetModel:
+class LoadRembgByBIREFNET:
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -141,7 +141,7 @@ class LoadRembgByBiRefNetModel:
             }
         }
 
-    RETURN_TYPES = ("BiRefNetMODEL",)
+    RETURN_TYPES = ("BIREFNET",)
     RETURN_NAMES = ("model",)
     FUNCTION = "load_model"
     CATEGORY = "rembg/BiRefNet"
@@ -179,7 +179,7 @@ class GetMaskByBiRefNet:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "model": ("BiRefNetMODEL",),
+                "model": ("BIREFNET",),
                 "images": ("IMAGE",),
                 "width": ("INT",
                           {
@@ -309,7 +309,7 @@ class RembgByBiRefNetAdvanced(GetMaskByBiRefNet, BlurFusionForegroundEstimation)
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "model": ("BiRefNetMODEL",),
+                "model": ("BIREFNET",),
                 "images": ("IMAGE",),
                 "width": ("INT",
                           {
@@ -358,7 +358,7 @@ class RembgByBiRefNet(RembgByBiRefNetAdvanced):
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "model": ("BiRefNetMODEL",),
+                "model": ("BIREFNET",),
                 "images": ("IMAGE",),
             }
         }
@@ -373,8 +373,8 @@ class RembgByBiRefNet(RembgByBiRefNetAdvanced):
 
 
 NODE_CLASS_MAPPINGS = {
-    "AutoDownloadBiRefNetModel": AutoDownloadBiRefNetModel,
-    "LoadRembgByBiRefNetModel": LoadRembgByBiRefNetModel,
+    "AutoDownloadBIREFNET": AutoDownloadBIREFNET,
+    "LoadRembgByBIREFNET": LoadRembgByBIREFNET,
     "RembgByBiRefNet": RembgByBiRefNet,
     "RembgByBiRefNetAdvanced": RembgByBiRefNetAdvanced,
     "GetMaskByBiRefNet": GetMaskByBiRefNet,
@@ -382,8 +382,8 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "AutoDownloadBiRefNetModel": "AutoDownloadBiRefNetModel",
-    "LoadRembgByBiRefNetModel": "LoadRembgByBiRefNetModel",
+    "AutoDownloadBIREFNET": "AutoDownloadBIREFNET",
+    "LoadRembgByBIREFNET": "LoadRembgByBIREFNET",
     "RembgByBiRefNet": "RembgByBiRefNet",
     "RembgByBiRefNetAdvanced": "RembgByBiRefNetAdvanced",
     "GetMaskByBiRefNet": "GetMaskByBiRefNet",
